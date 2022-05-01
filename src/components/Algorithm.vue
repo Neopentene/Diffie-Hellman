@@ -98,7 +98,6 @@ export default {
   methods: {
     power (a, b, p) {
       try {
-        console.log(typeof a, typeof b, typeof p)
         if (b === 1) {
           return a
         } else if (b === 0 || b === '') {
