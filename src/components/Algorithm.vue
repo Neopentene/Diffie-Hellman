@@ -60,15 +60,13 @@
     <output name="public-value-bob" for="a b">
       <h4>📢: <code>{{ setY(power(G, b, P))  }}</code></h4>
     </output>
-    <h3>
-      Symmetric Key for Alice (<code>key-alice = y<sup>a</sup> mod P</code>)
-    </h3>
+    <h3>Symmetric Key for Alice</h3>
+    <h3>(<code>key-alice = y<sup>a</sup> mod P</code>)</h3>
     <output name="symmetric-key-alice">
       <h4>📢: <code>{{ setKeyAlice(power(y, a, P)) }}</code></h4>
     </output>
-    <h3>
-      Symmetric Key for Bob (<code>key-bob = x<sup>b</sup> mod P</code>)
-    </h3>
+    <h3>Symmetric Key for Bob</h3>
+    <h3>(<code>key-bob = x<sup>b</sup> mod P</code>)</h3>
     <output name="symmetric-key-bob">
       <h4>📢: <code>{{ setKeyBob(power(x, b, P)) }}</code></h4>
     </output>
