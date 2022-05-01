@@ -46,7 +46,7 @@
       <span class="input__label">Enter private key for Bob</span>
     </label>
   </div>
-  <div class="card simple">
+  <div class="card simple" style="margin-bottom: 2rem">
     <h2>Output (📤)</h2>
     <h3>
       Public value for Alice (<code>x = G<sup>a</sup> mod P</code>)

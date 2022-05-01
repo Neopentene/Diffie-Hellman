@@ -134,8 +134,4 @@ mark {
   flex-direction: column;
 }
 
-#app:last-child {
-  margin-bottom: 2rem;
-}
-
 </style>
