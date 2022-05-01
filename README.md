@@ -1,4 +1,5 @@
 # diffie-hellman-app
+A Javascript application made with Vue to simulate the working of Diffie Hellman Algorithm for demonstration purposes
 
 ## Project setup
 ```
