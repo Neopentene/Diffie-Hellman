@@ -4,44 +4,48 @@
     <h3>Enter the Value of P (<code>🙏</code>)</h3>
     <label class="input">
       <input
+        id="P"
         class="input__field"
         type="number"
         placeholder=" "
         name="P"
-        v-model="P"
+        @input="toBigInt('P')"
       />
       <span class="input__label">Enter the Value of P</span>
     </label>
     <h3>Enter the Value of G (<code>🙏</code>)</h3>
     <label class="input">
       <input
+        id="G"
         class="input__field"
         type="number"
         placeholder=" "
         name="G"
-        v-model="G"
+        @input="toBigInt('G')"
       />
       <span class="input__label">Enter the Value of G</span>
     </label>
     <h3>Enter private key for Alice (<code>a 🕶</code>)</h3>
     <label class="input">
       <input
+        id="a"
         class="input__field"
         type="number"
         placeholder=" "
         name="a"
-        v-model="a"
+        @input="toBigInt('a')"
       />
       <span class="input__label">Enter private key for Alice</span>
     </label>
     <h3>Enter private key for Bob (<code>b 🕶</code>)</h3>
     <label class="input">
       <input
+        id="b"
         class="input__field"
         type="number"
         placeholder=" "
         name="b"
-        v-model="b"
+        @input="toBigInt('b')"
       />
       <span class="input__label">Enter private key for Bob</span>
     </label>
@@ -78,14 +82,14 @@ export default {
   name: 'AlgorithmVue',
   data: function () {
     return {
-      P: Number,
-      G: Number,
-      a: Number,
-      b: Number,
-      x: Number,
-      y: Number,
-      key_alice: Number,
-      key_bob: Number
+      P: BigInt(0),
+      G: BigInt(0),
+      a: BigInt(0),
+      b: BigInt(0),
+      x: BigInt(0),
+      y: BigInt(0),
+      key_alice: BigInt(0),
+      key_bob: BigInt(0)
     }
   },
   props: {
@@ -93,12 +97,33 @@ export default {
   },
   methods: {
     power (a, b, p) {
-      if (b === 1) {
-        return a
-      } else if (b === 0 || b === '') {
+      try {
+        console.log(typeof a, typeof b, typeof p)
+        if (b === 1) {
+          return a
+        } else if (b === 0 || b === '') {
+          return Number.NaN
+        } else {
+          return (a ** b) % p
+        }
+      } catch (error) {
         return Number.NaN
-      } else {
-        return ((Math.pow(a, b)) % p)
+      }
+    },
+    toBigInt (type) {
+      switch (type.toLowerCase()) {
+        case 'p':
+          this.P = BigInt(document.getElementById('P').value)
+          break
+        case 'g':
+          this.G = BigInt(document.getElementById('G').value)
+          break
+        case 'a':
+          this.a = BigInt(document.getElementById('a').value)
+          break
+        case 'b':
+          this.b = BigInt(document.getElementById('b').value)
+          break
       }
     },
     setX (val) {
